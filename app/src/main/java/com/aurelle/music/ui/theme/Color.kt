@@ -1,5 +1,11 @@
 package com.aurelle.music.ui.theme
 
+import androidx.compose.animation.core.AnimationSpec
+import androidx.compose.animation.core.TwoWayConverter
+import androidx.compose.animation.core.VectorConverter
+import androidx.compose.animation.core.animateValueAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,6 +27,8 @@ class AurellePalette(
     val goldDark: Color,
     val hint: Color,
     val purpleGlow: Color,
+    val onBackground: Color = Color(0xFFF2EEF7),
+    val onCard: Color = Color(0xFF1B1B1B),
 )
 
 object Palettes {
@@ -83,5 +91,127 @@ val AurellePurpleGlow: Color get() = ActivePalette.current.purpleGlow          /
 
 // Iguais em todos os estilos.
 val AurelleCard = Color(0xFFD9D9D9)             // cinza claro da paleta original
-val AurelleOnBackground = Color(0xFFF2EEF7)     // textos sobre o fundo
-val AurelleOnCard = Color(0xFF1B1B1B)           // textos sobre cinza claro
+val AurelleOnBackground: Color get() = ActivePalette.current.onBackground
+val AurelleOnCard: Color get() = ActivePalette.current.onCard
+
+// ============================================================================
+// ANIMATED COLOR TRANSITIONS - Transições suaves entre estilos
+// ============================================================================
+
+/**
+ * Anima a transição entre paletas quando o estilo muda.
+ * Usa uma animação suave para todas as cores.
+ */
+object AnimatedPalette {
+    private val animationSpec = tween<Color>(durationMillis = 400, easing = androidx.compose.animation.core.FastOutSlowInEasing)
+    
+    @Composable
+    fun background(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.background,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedBackground"
+        ).value
+    }
+    
+    @Composable
+    fun backgroundTop(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.backgroundTop,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedBackgroundTop"
+        ).value
+    }
+    
+    @Composable
+    fun backgroundBottom(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.backgroundBottom,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedBackgroundBottom"
+        ).value
+    }
+    
+    @Composable
+    fun navBar(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.navBar,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedNavBar"
+        ).value
+    }
+    
+    @Composable
+    fun surface(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.surface,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedSurface"
+        ).value
+    }
+    
+    @Composable
+    fun surfaceHigh(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.surfaceHigh,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedSurfaceHigh"
+        ).value
+    }
+    
+    @Composable
+    fun gold(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.gold,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedGold"
+        ).value
+    }
+    
+    @Composable
+    fun goldLight(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.goldLight,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedGoldLight"
+        ).value
+    }
+    
+    @Composable
+    fun goldDark(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.goldDark,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedGoldDark"
+        ).value
+    }
+    
+    @Composable
+    fun hint(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.hint,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedHint"
+        ).value
+    }
+    
+    @Composable
+    fun purpleGlow(): Color {
+        return animateValueAsState(
+            targetValue = ActivePalette.current.purpleGlow,
+            animationSpec = animationSpec,
+            typeConverter = Color.VectorConverter,
+            label = "animatedPurpleGlow"
+        ).value
+    }
+}

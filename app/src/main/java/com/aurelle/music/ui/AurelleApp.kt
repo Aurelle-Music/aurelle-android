@@ -256,10 +256,22 @@ fun AurelleApp(openPlayerSignal: Int = 0) {
                 navController = navController,
                 startDestination = Routes.HOME,
                 modifier = Modifier.padding(innerPadding),
-                enterTransition = { fadeIn(tween(320)) + slideInHorizontally(tween(320)) { it / 16 } },
-                exitTransition = { fadeOut(tween(200)) },
-                popEnterTransition = { fadeIn(tween(320)) },
-                popExitTransition = { fadeOut(tween(220)) + slideOutHorizontally(tween(280)) { it / 16 } },
+                enterTransition = {
+                    fadeIn(tween(300, easing = FastOutSlowInEasing)) +
+                    slideInHorizontally(tween(350, easing = FastOutSlowInEasing)) { it / 12 }
+                },
+                exitTransition = {
+                    fadeOut(tween(250, easing = FastOutSlowInEasing)) +
+                    slideOutHorizontally(tween(300, easing = FastOutSlowInEasing)) { it / 12 }
+                },
+                popEnterTransition = {
+                    fadeIn(tween(300, easing = FastOutSlowInEasing)) +
+                    slideInHorizontally(tween(350, easing = FastOutSlowInEasing)) { -it / 12 }
+                },
+                popExitTransition = {
+                    fadeOut(tween(250, easing = FastOutSlowInEasing)) +
+                    slideOutHorizontally(tween(300, easing = FastOutSlowInEasing)) { -it / 12 }
+                },
             ) {
                 composable(Routes.HOME) {
                     HomeScreen(
@@ -453,8 +465,8 @@ fun AurelleApp(openPlayerSignal: Int = 0) {
         // Player completo por cima de tudo (sobe de baixo; voltar/descer fecha).
         AnimatedVisibility(
             visible = playerExpanded && hasTrack,
-            enter = slideInVertically(tween(320)) { it } + fadeIn(tween(240)),
-            exit = slideOutVertically(tween(260)) { it } + fadeOut(tween(200)),
+            enter = slideInVertically(tween(350, easing = FastOutSlowInEasing)) { it } + fadeIn(tween(300, easing = FastOutSlowInEasing)),
+            exit = slideOutVertically(tween(300, easing = FastOutSlowInEasing)) { it } + fadeOut(tween(250, easing = FastOutSlowInEasing)),
         ) {
             PlayerScreen(
                 state = playerState,
