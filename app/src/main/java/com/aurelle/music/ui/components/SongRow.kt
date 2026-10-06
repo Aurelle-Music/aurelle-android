@@ -1,7 +1,12 @@
 package com.aurelle.music.ui.components
 
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,9 +22,12 @@ import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -49,11 +57,23 @@ fun SongRow(
     modifier: Modifier = Modifier,
     number: Int? = null,
 ) {
+    val interaction = remember { MutableInteractionSource() }
+    val pressed by interaction.collectIsPressedAsState()
+    val scale by animateFloatAsState(
+        targetValue = if (pressed) 0.98f else 1f,
+        animationSpec = spring(stiffness = Spring.StiffnessMedium, dampingRatio = 0.8f),
+        label = "songRowScale",
+    )
+    
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .graphicsLayer {
+                scaleX = scale
+                scaleY = scale
+            }
             .clip(RoundedCornerShape(16.dp))
-            .clickable(onClick = onClick)
+            .clickable(interactionSource = interaction, indication = null, onClick = onClick)
             .padding(vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {

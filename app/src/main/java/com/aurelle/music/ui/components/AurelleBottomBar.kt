@@ -37,6 +37,7 @@ import com.aurelle.music.ui.navigation.TopLevelDestination
 import com.aurelle.music.ui.theme.AurelleGold
 import com.aurelle.music.ui.theme.AurelleGoldLight
 import com.aurelle.music.ui.theme.AurelleNavBar
+import com.aurelle.music.ui.components.pressScale
 
 /** Dock flutuante de navegação (68dp) com item selecionado animado em formato de pílula. */
 @Composable
@@ -50,11 +51,12 @@ fun AurelleBottomBar(
         modifier = modifier
             .fillMaxWidth()
             .height(68.dp)
-            .shadow(6.dp, shape, ambientColor = Color.Black, spotColor = Color.Black)
+            .shadow(8.dp, shape, ambientColor = Color.Black, spotColor = Color.Black)
             .clip(shape)
             .background(AurelleNavBar)
-            .border(1.dp, AurelleGold.copy(alpha = 0.14f), shape)
-            .padding(horizontal = 8.dp, vertical = 8.dp),
+            .border(1.5.dp, AurelleGold.copy(alpha = 0.2f), shape)
+            .padding(horizontal = 8.dp, vertical = 8.dp)
+            .pressScale(scaleOnPress = 0.98f, durationMillis = 100),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
@@ -75,11 +77,13 @@ private fun RowScope.NavItem(
     onClick: () -> Unit,
 ) {
     val pillColor by animateColorAsState(
-        targetValue = if (selected) AurelleGold.copy(alpha = 0.18f) else Color.Transparent,
+        targetValue = if (selected) AurelleGold.copy(alpha = 0.25f) else Color.Transparent,
+        animationSpec = androidx.compose.animation.core.tween(200),
         label = "navPill",
     )
     val tint by animateColorAsState(
         targetValue = if (selected) AurelleGoldLight else AurelleGold.copy(alpha = 0.70f),
+        animationSpec = androidx.compose.animation.core.tween(200),
         label = "navTint",
     )
 
@@ -89,7 +93,8 @@ private fun RowScope.NavItem(
             .fillMaxHeight()
             .clip(RoundedCornerShape(26.dp))
             .background(pillColor)
-            .selectable(selected = selected, role = Role.Tab, onClick = onClick),
+            .selectable(selected = selected, role = Role.Tab, onClick = onClick)
+            .pressScale(scaleOnPress = 0.95f, durationMillis = 100),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
     ) {
