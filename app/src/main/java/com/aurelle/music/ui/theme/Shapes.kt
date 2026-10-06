@@ -16,7 +16,8 @@ import androidx.compose.ui.unit.dp
 // ============================================================================
 
 /**
- * Formas customizadas para diferentes nveis de arredondamento.
+ * Formas customizadas para diferentes n
+veis de arredondamento.
  * Usado para manter consist
 ncia visual em todo o app.
  */
@@ -33,7 +34,8 @@ val AurelleButtonShape = RoundedCornerShape(24.dp)
 // Arredondamento para a barra de navegao
 val AurelleNavBarShape = RoundedCornerShape(34.dp)
 
-// Arredondamento para itens de navegao (plulas)
+// Arredondamento para itens de navegao (p
+lulas)
 val AurelleNavPillShape = RoundedCornerShape(26.dp)
 
 // Arredondamento para a barra de busca
