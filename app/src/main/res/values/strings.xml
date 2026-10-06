@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aurelle Music</string>
+    <string name="logo_description">Aurelle Music, Open Source Music Client</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_library">Library</string>
+    <string name="nav_account">Account</string>
+
+    <string name="search_hint">Search a music</string>
+
+    <string name="section_artists">Artists</string>
+    <string name="section_songs">Songs</string>
+    <string name="section_recommended_artists">Recommended Artists</string>
+    <string name="section_recommended_songs">Recommended Songs</string>
+
+    <string name="library_title">Library</string>
+    <string name="library_search_hint">Search your library</string>
+    <string name="library_sort_recent">Recentes</string>
+    <string name="library_sort_title">Título</string>
+    <string name="library_sort_artist">Artista</string>
+    <string name="library_artists">Artistas</string>
+    <string name="library_albums">Álbuns</string>
+    <string name="library_songs">Músicas</string>
+    <string name="library_recent_albums">Baixados recentemente</string>
+    <string name="library_recent_songs">Músicas recentes</string>
+    <string name="library_no_artists">Nenhum artista ainda.</string>
+    <string name="library_no_albums">Nenhum álbum ainda. Os álbuns aparecem aqui quando você baixa músicas pela página de um álbum.</string>
+    <string name="library_empty_device">Nenhuma música baixada no Dispositivo ainda. Baixe uma música pelo botão no player ou nos cards.</string>
+    <string name="library_empty_app">Nenhuma música baixada no App ainda. Escolha \"App\" ao baixar para guardá-las aqui dentro.</string>
+    <string name="library_no_match">Nada encontrado com esse filtro.</string>
+    <string name="library_remove">Remover download</string>
+    <string name="library_remove_title">Remover download?</string>
+    <string name="library_remove_message_device">\"%1$s\" será apagada da pasta de músicas do aparelho. Você pode baixá-la de novo depois.</string>
+    <string name="library_remove_message_app">\"%1$s\" será apagada de dentro do Aurelle. Você pode baixá-la de novo depois.</string>
+    <string name="library_remove_confirm">Remover</string>
+    <string name="account_title">Account</string>
+    <string name="account_placeholder">As configurações chegam na Etapa 6.</string>
+
+    <string name="see_all">See all</string>
+    <string name="back">Voltar</string>
+    <string name="clear_search">Limpar busca</string>
+    <string name="coming_soon">Em breve</string>
+    <string name="error_loading">Couldn\'t load results. Check your connection.</string>
+    <string name="retry">Try again</string>
+    <string name="no_results">No results found.</string>
+    <string name="artist_label">Artist</string>
+    <string name="subscribers_format">%1$s subscribers</string>
+
+    <!-- Player (Etapa 3) -->
+    <string name="player_play">Tocar</string>
+    <string name="player_pause">Pausar</string>
+    <string name="player_next">Próxima</string>
+    <string name="player_previous">Anterior</string>
+    <string name="player_shuffle">Aleatório</string>
+    <string name="player_repeat">Repetir</string>
+    <string name="player_close">Fechar player</string>
+    <string name="player_open">Abrir player</string>
+    <string name="player_now_playing">Tocando agora</string>
+    <string name="player_queue_position">%1$d de %2$d</string>
+    <string name="player_error_age_restricted">Esta música tem restrição de idade e não pode ser tocada sem login.</string>
+    <string name="player_error_unavailable">Esta música não está disponível.</string>
+    <string name="player_error_network">Sem conexão. Verifique sua internet e tente de novo.</string>
+    <string name="player_error_generic">Não foi possível tocar esta música.</string>
+    <string name="artist_coming_soon">A página do artista chega em breve.</string>
+
+    <!-- Downloads (Etapa 4) -->
+    <string name="download_channel_name">Downloads</string>
+    <string name="download_preparing">Preparando…</string>
+    <string name="download_progress">Baixando… %1$d%%</string>
+    <string name="download_cancel">Cancelar</string>
+    <string name="download_done_notification">Download concluído</string>
+    <string name="download_button">Baixar</string>
+    <string name="download_cancel_description">Cancelar download</string>
+    <string name="download_done_description">Música baixada. Toque para baixar de novo.</string>
+    <string name="download_failed_description">Falha no download. Toque para tentar de novo.</string>
+    <string name="download_sheet_title">Baixar música</string>
+    <string name="download_save_to">Salvar em</string>
+    <string name="download_target_device">Dispositivo</string>
+    <string name="download_target_device_hint">Pasta Música/Aurelle, visível para outros apps</string>
+    <string name="download_target_app">App</string>
+    <string name="download_target_app_hint">Só dentro do Aurelle (aparece na Biblioteca)</string>
+    <string name="download_quality">Qualidade</string>
+    <string name="download_quality_low">Low · até 128 kbps</string>
+    <string name="download_quality_mid">Mid · até 192 kbps</string>
+    <string name="download_quality_high">High · até 256 kbps</string>
+    <string name="download_quality_max">Máxima · melhor original</string>
+    <string name="download_confirm">Baixar</string>
+    <string name="download_confirm_again">Baixar de novo</string>
+    <string name="download_replace_note">Já existe uma cópia neste destino; o novo download a substitui.</string>
+    <string name="download_status_done">Já baixada · %1$s</string>
+    <string name="download_status_active">Baixando…</string>
+    <string name="download_error_no_network">Sem conexão. Verifique sua internet e tente de novo.</string>
+    <string name="download_error_no_space">Sem espaço suficiente no aparelho.</string>
+    <string name="download_error_age_restricted">Esta música tem restrição de idade e não pode ser baixada sem login.</string>
+    <string name="download_error_unavailable">Esta música não está disponível para download.</string>
+    <string name="download_error_storage_permission">Sem permissão para salvar na pasta Música.</string>
+    <string name="download_error_generic">Não foi possível baixar esta música.</string>
+
+    <!-- Páginas de artista e álbum (Etapa 5.1) -->
+    <string name="artist_songs">Músicas</string>
+    <string name="artist_albums">Álbuns</string>
+    <string name="artist_songs_title">Músicas de %1$s</string>
+    <string name="artist_albums_title">Álbuns de %1$s</string>
+    <string name="artist_no_albums">Nenhum álbum encontrado para este artista.</string>
+    <string name="show_more">Mostrar mais</string>
+    <string name="show_less">Mostrar menos</string>
+    <string name="minutes_format">%1$d min</string>
+    <plurals name="songs_count">
+        <item quantity="one">%1$d música</item>
+        <item quantity="other">%1$d músicas</item>
+    </plurals>
+    <plurals name="albums_count">
+        <item quantity="one">%1$d álbum</item>
+        <item quantity="other">%1$d álbuns</item>
+    </plurals>
+
+    <!-- Conta / Configurações (Etapa 6) -->
+    <string name="settings_title">Configurações</string>
+    <string name="settings_downloads">Downloads</string>
+    <string name="settings_download_target">Destino padrão</string>
+    <string name="settings_download_quality">Qualidade padrão</string>
+    <string name="settings_download_note">A folha de download abre com estas escolhas e lembra a última que você usou.</string>
+    <string name="settings_appearance">Aparência</string>
+    <string name="settings_style">Estilo do app</string>
+    <string name="settings_icon">Ícone do app</string>
+    <string name="settings_icon_note">O launcher pode levar alguns segundos para mostrar o novo ícone.</string>
+    <string name="style_classic">Clássico</string>
+    <string name="style_amethyst">Ametista</string>
+    <string name="style_midnight">Meia-noite</string>
+    <string name="style_graphite">Grafite</string>
+    <string name="settings_library">Biblioteca</string>
+    <string name="settings_library_source">Aba padrão</string>
+    <string name="settings_library_sort">Ordenação padrão</string>
+    <string name="settings_about">Sobre</string>
+    <string name="settings_version">Versão %1$s</string>
+    <string name="settings_license">Licença: GPL-3.0 (o app usa o NewPipeExtractor, que é GPL-3.0).</string>
+    <string name="settings_legal">Projeto não oficial, sem vínculo com o YouTube/Google. Acessar o YouTube por clientes não oficiais e baixar conteúdo pode violar os Termos de Serviço deles e direitos autorais — use por sua conta e risco.</string>
+</resources>
