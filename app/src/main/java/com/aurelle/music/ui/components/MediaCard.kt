@@ -55,6 +55,8 @@ import com.aurelle.music.ui.theme.AurelleHint
 import com.aurelle.music.ui.theme.AurelleOnBackground
 import com.aurelle.music.ui.theme.AurelleSurface
 import com.aurelle.music.ui.theme.AurelleSurfaceHigh
+import com.aurelle.music.ui.components.pulse
+import com.aurelle.music.ui.components.pressScale
 
 private fun coverShape(isArtist: Boolean): Shape =
     if (isArtist) CircleShape else RoundedCornerShape(14.dp)
@@ -74,9 +76,14 @@ fun MediaCard(
     val interaction = remember { MutableInteractionSource() }
     val pressed by interaction.collectIsPressedAsState()
     val scale by animateFloatAsState(
-        targetValue = if (pressed) 0.97f else 1f,
-        animationSpec = spring(stiffness = Spring.StiffnessMedium),
+        targetValue = if (pressed) 0.95f else 1f,
+        animationSpec = spring(stiffness = Spring.StiffnessMedium, dampingRatio = 0.8f),
         label = "cardScale",
+    )
+    val elevation by animateFloatAsState(
+        targetValue = if (pressed) 0f else 4f,
+        animationSpec = spring(stiffness = Spring.StiffnessMedium, dampingRatio = 0.8f),
+        label = "cardElevation",
     )
     val textAlign = if (isArtist) TextAlign.Center else TextAlign.Start
 
@@ -85,6 +92,9 @@ fun MediaCard(
             .graphicsLayer {
                 scaleX = scale
                 scaleY = scale
+                shadowElevation = elevation.dp.toPx()
+                shape = coverShape(isArtist)
+                clip = true
             }
             .clickable(interactionSource = interaction, indication = null, onClick = onClick),
         horizontalAlignment = if (isArtist) Alignment.CenterHorizontally else Alignment.Start,
